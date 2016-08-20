@@ -1,16 +1,28 @@
-"use strict"
+'use strict'
 
 class Cyclops{
 
-    constructor(options = {}){
+    constructor(options = {}) {
         let params = {
-            color: 'dark',
-            html: 'notif'
-            sound: true,
-            delay: 1000
+            html: '.cyclops',
         }
 
         this.options = this.setOptions(params, options);
+    }
+
+    notification(title, message, type='default') {
+        $(this.options.html).append('<div class="notif '+ type+'">\
+            <h2>'+ title +'</h2>\
+            <p>'+ message +'</p>\
+        ');
+    }
+
+    success(title, message){
+        this.notification(title, message)
+    }
+
+    error(title, message){
+        this.notification(title, message, 'error')
     }
 
     setOptions(params, properties) {
@@ -20,5 +32,4 @@ class Cyclops{
 
       return params;
     }
-
 }
