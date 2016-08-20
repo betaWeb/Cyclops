@@ -16,4 +16,4 @@ notif.error('Mince!', 'Tu as pas plus te connecter.');
 ```
 
 ### License
-Released under the MIT License. See the bundled [License](./LICENSE) file for details.
+Released under the MIT License. See the bundled [LICENSE](./LICENSE) file for details.
