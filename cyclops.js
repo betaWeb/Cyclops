@@ -4,21 +4,29 @@ class Cyclops{
 
     constructor(options = {}) {
         let params = {
-            html: '.cyclops',
+            selector: '.cyclops',
         }
 
         this.options = this.setOptions(params, options);
     }
 
     notification(title, message, type='default') {
-        $(this.options.html).append('<div class="notif '+ type+'">\
+        $(this.options.selector).append('<div class="notif '+ type+'">\
             <h2>'+ title +'</h2>\
             <p>'+ message +'</p>\
         ');
     }
 
+    info(title, message){
+        this.notification(title, message, 'info')
+    }
+
     success(title, message){
-        this.notification(title, message)
+        this.notification(title, message, 'success')
+    }
+
+    warning(title, message){
+        this.notification(title, message, 'warning')
     }
 
     error(title, message){
