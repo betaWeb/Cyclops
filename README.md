@@ -6,14 +6,22 @@ A simple notification system for Cyclops.
 
 ### Usage
 ```javascript
-let notif = new Cyclops();
+let notif = new Cyclops({
+	'selector', 'choose your selector'
+});
 
-setOptions('html', 'choose your selector');
-
-notif.notification('Mon titre', 'Un message simple');
-notif.success('Bravo!', 'Tu es maintenant inscrit');
-notif.error('Mince!', 'Tu as pas plus te connecter.');
+notif.info('Info', 'Information Message');
+notif.success('Success!', 'Great, you a re register');
+notif.warning('Warning', 'Oh oh, you are not allowed here !');
+notif.error('Error !', 'An error has occured !');
 ```
+
+### CSS Classes
+You will need to stylise the following classes:
+- `.info` : Information
+- `.success`: Success
+- `.warning`: Warning
+- `.error`: Error
 
 ### License
 Released under the MIT License. See the bundled [LICENSE](./LICENSE) file for details.
