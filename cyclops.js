@@ -11,10 +11,31 @@ class Cyclops{
     }
 
     notification(title, message, type='default') {
+        // Without jQuery dependency (perhaps require polyfills for querySelectorAll and classList)
+        let _elms = document.querySelectorAll(this.options.selector);
+        
+        Array.prototype.forEach.call(_elms, (_elm) => {
+            let _notif = document.createElement('div');
+            let _title = document.createElement('h2');
+            let _message = document.createElement('p');
+            
+            _title.textContent = title;
+            _message.textContent = message;
+            
+            _notif.classList.add('notif', type);
+            _notif.appendChild(_title);
+            _notif.appendChild(_message);
+            
+            _elm.appendChild(_notif);
+        });
+        
+        // With jQuery dependency
+        /*
         $(this.options.selector).append('<div class="notif '+ type+'">\
             <h2>'+ title +'</h2>\
             <p>'+ message +'</p>\
         ');
+        */
     }
 
     info(title, message){
